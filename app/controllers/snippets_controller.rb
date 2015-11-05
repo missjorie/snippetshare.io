@@ -1,11 +1,13 @@
 class SnippetsController < ApplicationController
+
+	before_action :find_user, only: [:index, :new, :create]
+	before_action :find_user_and_snippet, only: [:edit, :update, :destroy]
+
 	def index
-		@user = User.find params[:user_id]
 		@snippets = @user.snippets
 	end
 
 	def new
-		@user = User.find params[:user_id]
 		@snippet = @user.snippets.new
 		@languages = Language.all
 		@editors = Editor.all
@@ -13,7 +15,6 @@ class SnippetsController < ApplicationController
 	end
 
 	def create
-		@user = User.find params[:user_id]
 		@snippet = @user.snippets.new(snippet_params)
 		@languages = Language.all
 		@editors = Editor.all
@@ -32,17 +33,12 @@ class SnippetsController < ApplicationController
 	end
 
 	def edit
-
-		@snippet = Snippet.find params[:id]
-		@user = @snippet.user_id
 		@languages = Language.all
 		@editors = Editor.all
 		@snippet = Snippet.find params[:id]
 	end
 
 	def update
-		@snippet = Snippet.find params[:id]
-		@user = @snippet.user_id
 		@languages = Language.all
 		@editors = Editor.all
 		@snippet = Snippet.find params[:id]
@@ -55,13 +51,20 @@ class SnippetsController < ApplicationController
 	end
 
 	def destroy
-		@snippet = Snippet.find params[:id]
-		@user = @snippet.user_id
 		@snippet.destroy
 		redirect_to user_snippets_path(@user)
 	end
 
 	private
+
+	def find_user
+		@user = User.find params[:user_id]
+	end
+
+	def find_user_and_snippet
+		@snippet = Snippet.find params[:id]
+		@user = @snippet.user_id
+	end
 
 	def snippet_params
 		params.require(:snippet).permit(:name, :code, :description, :user_id, :language_id, :editor_id)

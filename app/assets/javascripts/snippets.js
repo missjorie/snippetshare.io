@@ -2,6 +2,8 @@
 // All this logic will automatically be available in application.js.
 
 $(function(){
+
+	console.log("hey");
 	
 	var cm;
 
@@ -37,7 +39,6 @@ $(function(){
 		if(special_mimetypes[selection]) {
 			selection = special_mimetypes[selection];
 		}
-		console.log(selection);
 		cm.setOption("mode", selection);
 	});
 
