@@ -57,13 +57,25 @@ class SnippetsController < ApplicationController
 	def destroy
 		@snippet = Snippet.find params[:id]
 		@user = @snippet.user_id
-		@snippet.destroy
-		redirect_to user_snippets_path(@user)
+		# @snippets = @user.snippets
+		if @snippet.destroy
+			respond_to do |f|
+				f.html { redirect_to user_snippets_path(@user), notice: 'Snippet has been deleted.'}
+				f.js {}
+				f.json { render json: @snippet, status: :deleted, location: @snippet }
+			end
+		else
+			f.html {render action: "index"}
+			f.json { render json: @snippet.errors, status: :unprocessable_entity }
+		end
 	end
 
-	private
+end
+# redirect_to user_snippets_path(@user)
 
-	def snippet_params
-		params.require(:snippet).permit(:name, :code, :description, :user_id, :language_id, :editor_id)
-	end
+
+private
+
+def snippet_params
+	params.require(:snippet).permit(:name, :code, :description, :user_id, :language_id, :editor_id)
 end
