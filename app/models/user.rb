@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates :password, length: { in: 6..10 }
 
   has_many :snippets
+  has_many :favorites, dependent: :destroy
 
   def self.create_with_omniauth(auth)
     create! do |user|
@@ -14,5 +15,4 @@ class User < ActiveRecord::Base
       user.username = auth["info"]["name"]["avatar_url"]
     end
   end
-  # has_many :favorites, dependent: :destroy
 end

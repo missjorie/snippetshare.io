@@ -13,5 +13,6 @@ RSpec.describe Snippet, type: :model do
   it { is_expected.to belong_to :user }
   it { is_expected.to belong_to :language }
   it { is_expected.to belong_to :editor }
+  it { is_expected.to have_many :favorites }
 
 end
