@@ -6,7 +6,7 @@
 	<% language = @languages.find(snippet.language_id)  %>
 	<% editor = @editors.find(snippet.editor_id)  %>
 
-	<div class="col-md-4">
+	<div class="col-md-4" id="<%= snippet.id %>">
 		<div class="snippet-card">
 		<%= image_tag language.icon, class: "icon" %>
 			<div class="body">
