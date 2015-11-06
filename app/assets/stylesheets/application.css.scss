@@ -76,7 +76,7 @@
 	overflow: hidden;
 	position:relative;
 	transition: 0.2s ease-in-out;
-	&:hover {
+		&:hover {
 		cursor: pointer;
 		transform: scale(1.05);
 	}
@@ -199,5 +199,14 @@ form p {
 	white-space: normal;
 	word-wrap: break-word;
 	height: auto;
+}
+
+/* --------------- ERRORS ---------------- */
+
+#error_explanation h2 {
+	font-size: 1.3em;
+	color: #FFF;
+	display: block;
+	line-height: 0;
 }
 

@@ -5,6 +5,9 @@ class SnippetsController < ApplicationController
 
 	def index
 		@snippets = @user.snippets
+	    @languages = Language.all
+	    @editors = Editor.all
+	    @users = User.all
 	end
 
 	def new

@@ -1,1 +1,0 @@
-ActionView::Base.default_gravatar_size  = 120
