@@ -20,7 +20,21 @@
 					<li><%= language.name %></li>
 				</ul>
 			</div>
-			<div class="meta"><%= link_to '@'+user.username, user_snippets_path(user) %> <span class="badge"> <%= user.snippets.size %></span></div>
+			<div class="meta"><div class="row"><div class="col-xs-10"><%= link_to '@'+user.username, user_snippets_path(user) %> <span class="badge"> <%= user.snippets.size %></span></div>
+			<% if @current_user.id == @user.id %>
+			<!-- CREATER CONTROLS -->
+				<%= link_to "Edit Snippet", edit_snippet_path(@snippet), class: "btn btn-success" %>
+				<%= button_to "X", snippet, :remote => true, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs col-xs-1 delete" %></div>
+			<% else %>
+			<!-- FAVOTITE BUTTON -->
+				<% favorite = @favorites.find(snippet.id) %>
+				<% if favorite %>
+					<%= button_to "Favorited", favorite, :remote => true, method: :delete, class: "btn btn-primary btn-xs col-xs-1", id: favorite.id %>
+				<% else %>
+					<%= button_to "Favorite", favorite, :remote => true, class: "btn btn-default btn-sm col-xs-1 unfavorited" %></div>
+				<% end %>
+			<% end %>
+			</div>
 		</div>
 	</div>
 <% end %>

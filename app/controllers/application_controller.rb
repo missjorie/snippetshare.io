@@ -17,6 +17,14 @@ class ApplicationController < ActionController::Base
 		@current_user ||= User.find(session[:user_id]) if session[:user_id]
 	end
 
+  def find_favorites
+    @favorites = @current_user.snippets
+  end
+
+  def favorite_params
+    params.require(:favorite).permit(:user_id, :snippet_id)
+  end
+
   helper_method :current_user #this makes it available for the view
 
 end

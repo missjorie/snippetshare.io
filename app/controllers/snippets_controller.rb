@@ -1,5 +1,5 @@
 class SnippetsController < ApplicationController
-	before_action :current_user
+	before_action :current_user, :find_favorites, :favorite_params
 	before_action :find_user, only: [:index, :new, :create]
 	before_action :find_user_and_snippet, only: [:edit, :update, :destroy]
 
@@ -74,7 +74,34 @@ class SnippetsController < ApplicationController
 		end
 	end
 end
-# redirect_to user_snippets_path(@user)
+#favorites
+	def create_favorite
+		@favorite = Favorite.new(favorite_params)
+		if @favorite.save
+			respond_to do |f|
+				f.html { redirect_to user_favorites_path(@user)}
+				f.js {}
+				f.json { render json: @favorite, status: :created, location: @favorite }
+			end
+		else
+			f.html {render action: "create_favorite"}
+			f.json { render json: @favorite.errors, status: :unprocessable_entity }
+		end
+	end
+
+	def destroy_favorite
+		@favorite = Favorite.find_by_id params[:id]
+		if @favorite.destroy
+			respond_to do |f|
+				f.html { redirect_to user_favorites_path(@user)}
+				f.js {}
+				f.json { render json: @favorite, status: :deleted, location: @favorite }
+			end
+		else
+			f.html {render action: "destroy_favorite"}
+			f.json { render json: @favorite.errors, status: :unprocessable_entity }
+		end
+	end
 
 private
 

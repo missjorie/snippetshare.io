@@ -16,11 +16,10 @@ Rails.application.routes.draw do
   resources :users, except: ['index', 'new'] do
     resources :snippets, shallow: true
   end
-
-  resources :users, only: [] do
-    resources :favorites, except: ['show', 'new', 'edit']
-  end
-
+  #favorites
+  get '/users/:user_id/favorites', to: "users#favorites", as: 'favorites'
+  post '/users/:user_id/favorites', to: "snippets#create_favorite"
+  delete '/favorite/:id', to: "snippets#destroy_favorite"
 
 end
   

@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :current_user
+  before_action :current_user, :find_favorites
   before_action :prevent_login_signup, only: [:signup, :create, :login, :attempt_login]
 
   def index
@@ -39,6 +39,35 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     flash[:notice] = "Logged Out"
     redirect_to login_path
+  end
+
+  #favorites
+  def create_favorite
+    @favorite = Favorite.new(favorite_params)
+    if @favorite.save
+      respond_to do |f|
+        f.html { redirect_to user_favorites_path(@user)}
+        f.js {}
+        f.json { render json: @favorite, status: :created, location: @favorite }
+      end
+    else
+      f.html {render action: "create_favorite"}
+      f.json { render json: @favorite.errors, status: :unprocessable_entity }
+    end
+  end
+
+  def destroy_favorite
+    @favorite = Favorite.find_by_id params[:id]
+    if @favorite.destroy
+      respond_to do |f|
+        f.html { redirect_to user_favorites_path(@user)}
+        f.js {}
+        f.json { render json: @favorite, status: :deleted, location: @favorite }
+      end
+    else
+      f.html {render action: "destroy_favorite"}
+      f.json { render json: @favorite.errors, status: :unprocessable_entity }
+    end
   end
 
   private

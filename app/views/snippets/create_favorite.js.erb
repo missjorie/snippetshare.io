@@ -1,0 +1,4 @@
+$('#<%= snippet.id %> .unfavorited').fadeOut('fast', function () {
+	$(this).parent().appendTo('<%= button_to "Favorite", favorite, :remote => true, class: "btn btn-default btn-sm col-xs-1 unfavorited" %>');
+	$(this).remove();
+});
