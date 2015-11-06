@@ -88,6 +88,7 @@ GEM
     formatador (0.2.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    gravatar_image_tag (1.2.0)
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -277,6 +278,7 @@ DEPENDENCIES
   capybara-email
   codemirror-rails
   dotenv-rails
+  gravatar_image_tag
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails

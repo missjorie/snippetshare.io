@@ -2,6 +2,8 @@
 // All this logic will automatically be available in application.js.
 
 $(function(){
+
+	console.log("hey");
 	
 	var cm;
 
@@ -32,13 +34,11 @@ $(function(){
 	});
 		
 	$("select:first").on('change', function(){
-
-		var selection = $(this).find('option:selected').val().toLowerCase();
+		var selection = $(this).find('option:selected').text().toLowerCase();
 
 		if(special_mimetypes[selection]) {
 			selection = special_mimetypes[selection];
 		}
-		
 		cm.setOption("mode", selection);
 	});
 

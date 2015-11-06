@@ -4,7 +4,9 @@ class SessionsController < ApplicationController
 
   def index
     @snippets = Snippet.all
-
+    @languages = Language.all
+    @editors = Editor.all
+    @users = User.all
   end
 
   def create

@@ -1,0 +1,9 @@
+<h1>My Profile</h1>
+<div class="col-md-12">
+	<div class="well well-lg">
+		<%= gravatar_image_tag(current_user.email, :alt => current_user.username, size: 300) %>
+		<h2><%= current_user.username %></h2>
+		<h4><%= current_user.email %></h4>
+		<%= link_to "Edit Profile", edit_user_path(current_user) %>
+	</div>
+</div>

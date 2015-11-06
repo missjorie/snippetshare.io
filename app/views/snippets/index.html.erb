@@ -1,20 +1,23 @@
 <h1>View My Snippets</h1>
 
 <% @snippets.each do |snippet| %>
-<% @language = Language.find snippet.language_id  %>
-<% @editor = Editor.find snippet.editor_id  %>
-	<div class="col-md-4" id="<%= snippet.id %>">
+
+
+	<% language = @languages.find(snippet.language_id)  %>
+	<% editor = @editors.find(snippet.editor_id)  %>
+
+	<div class="col-md-4">
 		<div class="snippet-card">
-		<%= image_tag @language.icon, class: "icon" %>
+		<%= image_tag language.icon, class: "icon" %>
 			<div class="body">
 				<h4 class="title"><%= link_to snippet.name, snippet_path(snippet) %></h4>
 				<span class="description"><%= snippet.description %></span>
 				<ul class="tags">
-					<li><%= image_tag @editor.icon_src %>	<%= @editor.name %></li>
-					<li><%= @language.name %></li>
+					<li><%= image_tag editor.icon_src %><%= editor.name %></li>
+					<li><%= language.name %></li>
 				</ul>
 			</div>
-			<div class="meta"><div class="row"><div class="col-xs-10">@<%= @user.username %></div>
+			<div class="meta"><div class="row"><div class="col-xs-10">@<%= current_user.username %></div>
 		<%= button_to "X", snippet, :remote => true, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs col-xs-1 delete" %></div></div>
 		</div>
 	</div>
