@@ -23,6 +23,9 @@
 @import url(https://fonts.googleapis.com/css?family=Lato);
 @import url(https://cdn.rawgit.com/konpa/devicon/89f2f44ba07ea3fff7e561c2142813b278c2d6c6/devicon.min.css);
 
+body {
+	background-color: #fcfcfc;
+}
 
 .snipper_heading, .navbar-brand {
 	display: inline-block;
@@ -68,6 +71,7 @@
 /* --------------- SNIPPET CARD ---------------- */
 
 .snippet-card {
+	background-color: #fff;
 	border: 1px solid #CCC;
 	margin: 0 0 20px 0;
 	padding: 0;
@@ -188,6 +192,11 @@ tr td {
 
 form p {
 	color: #999;
+}
+
+.btn-danger {
+    background-color: #2AD3B2;
+    border-color: #2AD3B2;
 }
 
 /* --------------- CODE MIRROR ---------------- */
