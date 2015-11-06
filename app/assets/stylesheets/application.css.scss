@@ -16,9 +16,9 @@
  *= require codemirror/themes/monokai
  */
 @import "bootstrap-sprockets";
-@import "bootswatch/lumen/variables";
+@import "bootswatch/yeti/variables";
 @import "bootstrap";
-@import "bootswatch/lumen/bootswatch";
+@import "bootswatch/yeti/bootswatch";
 @import url(https://fonts.googleapis.com/css?family=Grand+Hotel);
 @import url(https://fonts.googleapis.com/css?family=Lato);
 @import url(https://cdn.rawgit.com/konpa/devicon/89f2f44ba07ea3fff7e561c2142813b278c2d6c6/devicon.min.css);
@@ -156,7 +156,7 @@
 	}
 }
 
-.row .col-sm-6 {
+.row .col-xs-6 {
 	&:first-child {
 		padding-right: 0;
 	}

@@ -1,5 +1,5 @@
 class SnippetsController < ApplicationController
-
+	before_action :current_user
 	before_action :find_user, only: [:index, :new, :create]
 	before_action :find_user_and_snippet, only: [:edit, :update, :destroy]
 
@@ -8,13 +8,16 @@ class SnippetsController < ApplicationController
 	    @languages = Language.all
 	    @editors = Editor.all
 	    @users = User.all
+	    @user = User.find params[:user_id]
 	end
 
 	def new
 		@snippet = @user.snippets.new
 		@languages = Language.all
 		@editors = Editor.all
-		# @user = User.first # this is only for tests
+		if @current_user.id != @snippet.user_id
+			redirect_to root_path
+		end
 	end
 
 	def create
@@ -39,6 +42,9 @@ class SnippetsController < ApplicationController
 		@languages = Language.all
 		@editors = Editor.all
 		@snippet = Snippet.find params[:id]
+		if @current_user.id != @snippet.user_id
+			redirect_to root_path
+		end
 	end
 
 	def update
@@ -56,7 +62,6 @@ class SnippetsController < ApplicationController
 	def destroy
 		@snippet = Snippet.find params[:id]
 		@user = @snippet.user_id
-		# @snippets = @user.snippets
 		if @snippet.destroy
 			respond_to do |f|
 				f.html { redirect_to user_snippets_path(@user), notice: 'Snippet has been deleted.'}

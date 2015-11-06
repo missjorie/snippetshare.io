@@ -1,4 +1,8 @@
-<h1>View My Snippets</h1>
+<% if @current_user.id == @user.id %>
+	<h1>View My Snippets</h1>
+<% else %>
+	<h1>View <%= @user.username %>'s Snippets</h1>
+<% end %>
 
 <% @snippets.each do |snippet| %>
 
@@ -17,8 +21,10 @@
 					<li><%= language.name %></li>
 				</ul>
 			</div>
-			<div class="meta"><div class="row"><div class="col-xs-10">@<%= current_user.username %></div>
-		<%= button_to "X", snippet, :remote => true, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs col-xs-1 delete" %></div></div>
+			<div class="meta"><div class="row"><div class="col-xs-10">@<%= @user.username %></div>
+			<% if @current_user.id == @user.id %>
+				<%= button_to "X", snippet, :remote => true, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs col-xs-1 delete" %></div></div>
+			<% end %>
 		</div>
 	</div>
 <% end %>

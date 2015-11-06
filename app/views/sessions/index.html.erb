@@ -20,7 +20,7 @@
 					<li><%= language.name %></li>
 				</ul>
 			</div>
-			<div class="meta">@<%= user.username %></div>
+			<div class="meta"><%= link_to '@'+user.username, user_snippets_path(user) %> <span class="badge"> <%= user.snippets.size %></span></div>
 		</div>
 	</div>
 <% end %>
