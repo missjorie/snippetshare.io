@@ -8,13 +8,17 @@ class SnippetsController < ApplicationController
 	    @languages = Language.all
 	    @editors = Editor.all
 	    @users = User.all
+	    @user = User.find params[:user_id]
+
 	end
 
 	def new
 		@snippet = @user.snippets.new
 		@languages = Language.all
 		@editors = Editor.all
-		# @user = User.first # this is only for tests
+		if @current_user.id != @snippet.user_id
+			redirect_to root_path
+		end
 	end
 
 	def create
@@ -39,6 +43,9 @@ class SnippetsController < ApplicationController
 		@languages = Language.all
 		@editors = Editor.all
 		@snippet = Snippet.find params[:id]
+		if @current_user.id != @snippet.user_id
+			redirect_to root_path
+		end
 	end
 
 	def update
