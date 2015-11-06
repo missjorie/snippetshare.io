@@ -1,8 +1,10 @@
 class FavoritesController < ApplicationController
+	before_action :current_user
+	before_action :find_favorites
 
 	def index
-		@favorites = Favorite.all
-		render :index
+	    @user = User.find params[:id]
+		@favorites = @user.snippets
 	end
 
 	def create
@@ -36,4 +38,10 @@ class FavoritesController < ApplicationController
 	def favorite_params
 		params.require(:favorite).permit(:user_id, :snippet_id)
 	end
+
+  def find_favorites
+    @user = @current_user
+    @favorites = @user.favorites
+  end
+
 end

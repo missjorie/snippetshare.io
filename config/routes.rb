@@ -16,9 +16,10 @@ Rails.application.routes.draw do
   resources :users, except: ['index', 'new'] do
     resources :snippets, shallow: true
   end
-  # resources :users, only: [] do
-  #   resources :favorites, except: ['show']
-  # end
+
+  resources :users, only: [] do
+    resources :favorites, except: ['show', 'new', 'edit']
+  end
 
 
 end

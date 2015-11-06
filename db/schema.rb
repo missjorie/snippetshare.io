@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105235612) do
+ActiveRecord::Schema.define(version: 20151106062549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20151105235612) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "snippet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "favorites", ["snippet_id"], name: "index_favorites_on_snippet_id", using: :btree
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
   create_table "languages", force: :cascade do |t|
     t.string   "mode"
@@ -58,6 +68,8 @@ ActiveRecord::Schema.define(version: 20151105235612) do
     t.string   "uid"
   end
 
+  add_foreign_key "favorites", "snippets"
+  add_foreign_key "favorites", "users"
   add_foreign_key "snippets", "editors"
   add_foreign_key "snippets", "languages"
   add_foreign_key "snippets", "users"
