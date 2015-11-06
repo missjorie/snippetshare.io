@@ -1,5 +1,5 @@
 console.log($('#<%= @snippet.id %>'));
 
-$('#<%= @snippet.id %>').fadeOut('slow').remove();
-
-console.log($(this));
+$('#<%= @snippet.id %>').fadeOut('fast', function () {
+	$(this).remove();
+});

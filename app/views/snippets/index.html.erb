@@ -14,8 +14,8 @@
 					<li><%= @language.name %></li>
 				</ul>
 			</div>
-			<div class="meta"><div class="row"><div class="col-xs-4">@<%= @user.username %></div>
-		<%= button_to "X", snippet, :remote => true, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm col-xs-offset-6 col-xs-1 delete" %></div></div>
+			<div class="meta"><div class="row"><div class="col-xs-10">@<%= @user.username %></div>
+		<%= button_to "X", snippet, :remote => true, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs col-xs-1 delete" %></div></div>
 		</div>
 	</div>
 <% end %>

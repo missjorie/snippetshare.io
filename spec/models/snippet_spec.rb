@@ -11,7 +11,7 @@ RSpec.describe Snippet, type: :model do
   it { is_expected.to validate_length_of :name }
   it { is_expected.to validate_length_of :description }
   it { is_expected.to belong_to :user }
-  xit { is_expected.to have_one :languages }
-  xit { is_expected.to have_one :languages }
+  it { is_expected.to belong_to :language }
+  it { is_expected.to belong_to :editor }
 
 end
