@@ -16,9 +16,9 @@
  *= require codemirror/themes/monokai
  */
 @import "bootstrap-sprockets";
-@import "bootswatch/lumen/variables";
+@import "bootswatch/yeti/variables";
 @import "bootstrap";
-@import "bootswatch/lumen/bootswatch";
+@import "bootswatch/yeti/bootswatch";
 @import url(https://fonts.googleapis.com/css?family=Grand+Hotel);
 @import url(https://fonts.googleapis.com/css?family=Lato);
 @import url(https://cdn.rawgit.com/konpa/devicon/89f2f44ba07ea3fff7e561c2142813b278c2d6c6/devicon.min.css);
@@ -30,13 +30,16 @@
 	font-family: 'Grand Hotel', sans-serif;
 	font-size: 8em;
 	font-weight: bold;
-	background: #f3c5bd;
-	background: -moz-linear-gradient(top,  #f3c5bd 0%, #e86c57 50%, #ea2803 51%, #ff6600 75%, #c72200 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3c5bd), color-stop(50%,#e86c57), color-stop(51%,#ea2803), color-stop(75%,#ff6600), color-stop(100%,#c72200));
-	background: -webkit-linear-gradient(top,  #f3c5bd 0%,#e86c57 50%,#ea2803 51%,#ff6600 75%,#c72200 100%);
-	background: -o-linear-gradient(top,  #f3c5bd 0%,#e86c57 50%,#ea2803 51%,#ff6600 75%,#c72200 100%);
-	background: -ms-linear-gradient(top,  #f3c5bd 0%,#e86c57 50%,#ea2803 51%,#ff6600 75%,#c72200 100%);
-	background: linear-gradient(to bottom,  #f3c5bd 0%,#e86c57 50%,#ea2803 51%,#ff6600 75%,#c72200 100%);
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#167067+0,17937e+24,17937e+24,1d9f87+50,17937e+71,2cdab7+100 */
+background: #167067; /* Old browsers */
+background: -moz-linear-gradient(top,  #167067 0%, #17937e 24%, #17937e 24%, #1d9f87 50%, #17937e 71%, #2cdab7 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#167067), color-stop(24%,#17937e), color-stop(24%,#17937e), color-stop(50%,#1d9f87), color-stop(71%,#17937e), color-stop(100%,#2cdab7)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #167067 0%,#17937e 24%,#17937e 24%,#1d9f87 50%,#17937e 71%,#2cdab7 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #167067 0%,#17937e 24%,#17937e 24%,#1d9f87 50%,#17937e 71%,#2cdab7 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #167067 0%,#17937e 24%,#17937e 24%,#1d9f87 50%,#17937e 71%,#2cdab7 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #167067 0%,#17937e 24%,#17937e 24%,#1d9f87 50%,#17937e 71%,#2cdab7 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#167067', endColorstr='#2cdab7',GradientType=0 ); /* IE6-9 */
+
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }

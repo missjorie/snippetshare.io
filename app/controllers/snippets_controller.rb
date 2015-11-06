@@ -1,5 +1,5 @@
 class SnippetsController < ApplicationController
-
+	before_action :current_user
 	before_action :find_user, only: [:index, :new, :create]
 	before_action :find_user_and_snippet, only: [:edit, :update, :destroy]
 

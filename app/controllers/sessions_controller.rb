@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+  before_action :current_user
   before_action :prevent_login_signup, only: [:signup, :create, :login, :attempt_login]
 
   def index
