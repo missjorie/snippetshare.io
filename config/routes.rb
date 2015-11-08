@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
 
-root "sessions#index"
+  root "sessions#index"
 
-get '/login', to: "sessions#login", as: 'login'
-post '/login', to: "sessions#attempt_login"
-delete '/logout', to: "sessions#logout", as: 'logout'
-get '/signup', to: "users#signup", as: 'signup'
-get '/home', to: "sessions#index", as: 'home'
-post '/signup', to: "users#create"
+  get '/login', to: "sessions#login", as: 'login'
+  post '/login', to: "sessions#attempt_login"
+  delete '/logout', to: "sessions#logout", as: 'logout'
+  get '/signup', to: "users#signup", as: 'signup'
+  get '/home', to: "sessions#index", as: 'home'
+  post '/signup', to: "users#create"
+
+  #Oauth Github
+  get "/auth/:provider/callback" => "sessions#create"
+  get "/signout" => "sessions#destroy", :as => :signout
 
   resources :users, except: ['index', 'new'] do
     resources :snippets, shallow: true
@@ -18,3 +22,4 @@ post '/signup', to: "users#create"
 
 
 end
+  

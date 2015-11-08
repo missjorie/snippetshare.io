@@ -1,8 +1,9 @@
 class Snippet < ActiveRecord::Base
   belongs_to :user
-  has_many :languages
+  belongs_to :language
+  belongs_to :editor
   validates :name, :description, :code, :language_id, :editor_id, presence: true
   validates :code, uniqueness: true
-  validates :name,  length: { in: 1..20 }
-  validates :description,  length: { in: 10..140 }
+  validates :name,  length: { in: 1..40 }
+  validates :description,  length: { maximum: 140 }
 end
