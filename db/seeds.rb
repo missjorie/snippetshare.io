@@ -13,7 +13,7 @@ Editor.create(name: "Commande Line", icon_src: 'terminal.png')
 
 Language.create(name: "C", mode: "text/x-csrc", icon: 'c.svg')
 
-Language.create(name: "C++", mode: "tex/x-c++scr", icon: 'cplushplus.svg')
+Language.create(name: "C++", mode: "tex/x-c++scr", icon: 'cplusplus.svg')
 
 Language.create(name: "C#", mode: "text/x-csharp", icon: 'csharp.svg')
 
