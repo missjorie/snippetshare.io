@@ -63,7 +63,6 @@ class SnippetsController < ApplicationController
 	def destroy
 		@snippet = Snippet.find params[:id]
 		@user = @snippet.user_id
-		# @snippets = @user.snippets
 		if @snippet.destroy
 			respond_to do |f|
 				f.html { redirect_to user_snippets_path(@user), notice: 'Snippet has been deleted.'}
