@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :current_user, :find_favorites
+  before_action :current_user
+  before_action :find_favorites, except: [:favorites]
   before_action :find_user, only: [:show, :edit, :update, :delete]
   before_action :prevent_login_signup, only: [:create]
 
@@ -9,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def favorites
+    @user = User.find_by_id params[:user_id]
     @favorites = @user.favorites
   end
 
@@ -56,7 +58,7 @@ class UsersController < ApplicationController
   private
 
   def find_user
-    @user = User.find params[:id]
+    @user = User.find_by_id params[:id]
   end
 
   def user_params

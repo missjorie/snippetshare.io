@@ -1,3 +1,43 @@
+<% if @current_user && @current_user.id == @user.id %>
+	<h1>View My Favorites</h1>
+	<% if @favorites.length == 0 %>
+		<h3>You have no favorites! <%= link_to "Look for favorites", root_path %>?</h3>		
+	<% end %>
+<% else %>
+	<h1>View <%= @user.username %>'s Favorites</h1>
+	<% if @favorites.length == 0 %>
+		<h3>@<%= @user.username %> has no favorites. <%= link_to "Go back", :back %>?</h3>		
+	<% end %>
+<% end %>
+
 <% @favorites.each do |favorite| %>
-	
+
+	<% language = @languages.find(favorite.language_id)  %>
+	<% editor = @editors.find(favorite.editor_id)  %>
+
+	<div class="col-md-4" id="<%= favorite.id %>">
+		<div class="favorite-card">
+		<%= image_tag language.icon, class: "icon" %>
+			<div class="body">
+				<h4 class="title"><%= link_to favorite.name, favorite_path(favorite) %></h4>
+				<span class="description"><%= favorite.description %></span>
+				<ul class="tags">
+					<li><%= image_tag editor.icon_src %><%= editor.name %></li>
+					<li><%= language.name %></li>
+				</ul>
+			</div>
+			<div class="meta"><div class="row"><div class="col-xs-10">@<%= @user.username %></div>
+			<% fave = Favorite.exists?(snippet_id: snippet.id, user_id: @current_user) %>
+			<% if fave && @current_user %>
+					<%= button_to fave, :remote => true, method: :delete, class: "btn-warning btn-xs pull-right", id: fave.id do %>
+						<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+					<% end %>
+				<% elsif @current_user %>
+					<%= button_to fave, :remote => true, class: " btn-default unfavorited pull-right" do %>
+						<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
 <% end %>
