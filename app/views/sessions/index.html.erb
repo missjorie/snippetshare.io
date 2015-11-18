@@ -20,18 +20,25 @@
 					<li><%= language.name %></li>
 				</ul>
 			</div>
-			<div class="meta"><div class="row"><div class="col-xs-10"><%= link_to '@'+user.username, user_snippets_path(user) %> <span class="badge"> <%= user.snippets.size %></span>
-			<% if @current_user && @current_user.id == snippet.user_id %>
+			<div class="meta">
+			<div class="row">
+			<div class="col-xs-12">
+				<%= link_to '@'+user.username, user_snippets_path(user) %> <span class="badge"> <%= user.snippets.size %></span>
+				<% if @current_user && @current_user.id == snippet.user_id %>
 			<!-- CREATER CONTROLS -->
-				<%= link_to "Edit Snippet", edit_snippet_path(snippet.id), class: "btn btn-success" %>
-				<%= button_to "X", snippet, :remote => true, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs col-xs-1 delete" %>
+				<%= link_to "Edit", edit_snippet_path(snippet.id), class: "btn btn-danger btn-xs pull-right" %>
+				<!-- <%= button_to "X", snippet, :remote => true, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs delete btn-xs pull-right" %> -->
 			<% else %>
 			<!-- FAVOTITE BUTTON -->
 				<% favorite = Favorite.exists?(snippet_id: snippet.id, user_id: @current_user) %>
 				<% if favorite && @current_user %>
-					<%= button_to "Favorited", favorite, :remote => true, method: :delete, class: "btn btn-primary btn-xs", id: favorite.id %>
+					<%= button_to favorite, :remote => true, method: :delete, class: "btn-warning btn-xs pull-right", id: favorite.id do %>
+						<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+					<% end %>
 				<% elsif @current_user %>
-					<%= button_to "Favorite", favorite, :remote => true, class: "btn btn-default btn-sm col-xs-1 unfavorited" %>
+					<%= button_to favorite, :remote => true, class: " btn-default unfavorited pull-right" do %>
+						<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					<% end %>
 				<% end %>
 			<% end %>
 			</div>
