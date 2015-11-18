@@ -13,13 +13,13 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create"
   get "/signout" => "sessions#destroy", :as => :signout
 
-  resources :users, except: ['index', 'new'] do
+  resources :users, except: ['index','new'] do
     resources :snippets, shallow: true
   end
   #favorites
   get '/users/:user_id/favorites', to: "users#favorites", as: 'favorites'
-  post '/users/:user_id/favorites', to: "snippets#create_favorite"
-  delete '/favorite/:id', to: "snippets#destroy_favorite"
+  post '/users/:user_id/favorites', to: "favorites#create_favorite"
+  delete '/favorite/:id', to: "favorites#destroy_favorite"
 
 end
   

@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  before_action :current_user
+  before_action :current_user, :find_favorites
   before_action :find_user, only: [:show, :edit, :update, :delete]
   before_action :prevent_login_signup, only: [:create]
 
+  
   def signup
     @user = User.new
   end
