@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :prevent_login_signup, only: [:create]
 
   def signup
-    @user = User.new
+    edirect_to login_path
   end
 
   def create

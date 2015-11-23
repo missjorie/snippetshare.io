@@ -1,0 +1,24 @@
+<% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<h1>Admin Login</h1>
+
+<%= form_tag login_path, class: "login-form" do  %>
+<div class="form-group">
+  <%= label_tag :username, nil, class: "control-label" %>
+  <%= text_field_tag :username, nil, class: "form-control", required: true %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :password, nil, class: "control-label" %>
+  <%= password_field_tag :password, nil, class: "form-control", required: true %>
+</div>
+<%= submit_tag "Login", id: "login", class: "btn btn-block btn-success text-center" %>
+
+<div class="form-group">
+	<br>
+	<p>Oops, not an admin? <%= link_to "Login here", login_path %></p>
+</div>
+
+<% end %>

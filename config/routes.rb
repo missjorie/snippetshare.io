@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 
   get '/login', to: "sessions#login", as: 'login'
   post '/login', to: "sessions#attempt_login"
+  get '/admin', to: "sessions#admin", as: 'admin'
+  post '/login', to: "sessions#attempt_login"
   delete '/logout', to: "sessions#logout", as: 'logout'
-  get '/signup', to: "users#signup", as: 'signup'
   get '/home', to: "sessions#index", as: 'home'
-  post '/signup', to: "users#create"
 
   #Oauth Github
   get "/auth/:provider/callback" => "sessions#create"
