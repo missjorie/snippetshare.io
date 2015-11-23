@@ -1,4 +1,4 @@
-<% if @current_user.id == @user.id %>
+<% if @current_user && @current_user.id == @user.id %>
 	<h1>View My Snippets</h1>
 <% else %>
 	<h1>View <%= @user.username %>'s Snippets</h1>
@@ -22,9 +22,10 @@
 				</ul>
 			</div>
 			<div class="meta"><div class="row"><div class="col-xs-10">@<%= @user.username %></div>
-			<% if @current_user.id == @user.id %>
-				<%= button_to "X", snippet, :remote => true, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs col-xs-1 delete" %></div>
+			<% if @current_user && @current_user.id == @user.id %>
+				<%= button_to "X", snippet, :remote => true, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs col-xs-1 delete" %>
 			<% end %>
+			</div>
 			</div>
 		</div>
 	</div>
