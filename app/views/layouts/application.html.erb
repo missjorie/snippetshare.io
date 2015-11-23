@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>SnippetShare.io</title>
+  <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,7 +10,7 @@
 <body>
 
 <nav class="navbar navbar-default">
-  <div class="container">
+  <div class="container-fluid">
 	<div class="col-md-12">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -27,6 +28,17 @@
       <ul class="nav navbar-nav">
       <!-- <li><a href="#">Popular</a></li> -->
       <!-- <li><a href="#">New</a></li> -->
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Guides<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-header">Adding snippets to:</li>
+            <li><%= link_to "Atom", "https://atom.io/docs/latest/using-atom-snippets", target: "_blank" %></li>
+            <li><%= link_to "Brackets", "https://dennisaa.wordpress.com/2015/01/17/brackets-snippets-editor/", target: "_blank" %></li>
+            <li><%= link_to "Sublime Text", "http://sublimetext.info/docs/en/extensibility/snippets.html", target: "_blank" %></li>
+            <li><%= link_to "Microsoft Command Line", "https://msdn.microsoft.com/en-us/library/ff926100.aspx", target: "_blank" %></li>
+            <li><%= link_to "Mac Terminal", "http://www.techradar.com/us/how-to/computing/apple/terminal-101-creating-aliases-for-commands-1305638", target: "_blank" %></li>
+          </ul>
+        </li>
 
       </ul>
       <!-- <form class="navbar-form navbar-right" role="search">
@@ -50,7 +62,9 @@
           </ul>
         </li>
 					<li><%= link_to "Logout", logout_path, method: :delete%></li>
-				<% else %>
+				<% elsif current_page?(controller: 'sessions', action: 'login') %>
+          <li><%= link_to "Go Back", :back %></li>
+        <% else %>
 					<li><%= link_to "Login", login_path %></li>
 				<% end %>
       </ul>

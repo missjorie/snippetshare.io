@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-xs-10">
 		<h1>Show Snippet
-	<% if current_user.id == @user.id %>
+	<% if current_user && current_user.id == @user.id %>
 		<%= link_to "Edit Snippet", edit_snippet_path(@snippet), class: "btn btn-success" %>
 	<% end %></h1>
 	</div>
