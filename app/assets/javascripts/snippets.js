@@ -32,7 +32,7 @@ $(function(){
   				lineNumbers: true
 			});
 	});
-		
+
 	$("select:first").on('change', function(){
 		var selection = $(this).find('option:selected').text().toLowerCase();
 

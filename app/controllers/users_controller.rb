@@ -19,10 +19,17 @@ class UsersController < ApplicationController
   end
 
   def show
+    if @current_user.id != @user.id
+      redirect_to root_path
+    end
   end
 
   def edit
+<<<<<<< HEAD
     if @current_user.id != @snippet.user_id
+=======
+    if @current_user.id != @user.id
+>>>>>>> f97184f927ae6a7bd6b5065429dda90db7f576dd
       redirect_to root_path
     end
   end

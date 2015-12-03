@@ -23,6 +23,9 @@
 @import url(https://fonts.googleapis.com/css?family=Lato);
 @import url(https://cdn.rawgit.com/konpa/devicon/89f2f44ba07ea3fff7e561c2142813b278c2d6c6/devicon.min.css);
 
+body {
+	background-color: #fcfcfc;
+}
 
 .snipper_heading, .navbar-brand {
 	display: inline-block;
@@ -40,7 +43,7 @@ background: -ms-linear-gradient(top,  #167067 0%,#17937e 24%,#17937e 24%,#1d9f87
 background: linear-gradient(to bottom,  #167067 0%,#17937e 24%,#17937e 24%,#1d9f87 50%,#17937e 71%,#2cdab7 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#167067', endColorstr='#2cdab7',GradientType=0 ); /* IE6-9 */
 
-	-webkit-background-clip: text;
+		-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -72,6 +75,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#167067', end
 
 .snippet-card {
   background-color: #fff;
+
 	border: 1px solid #CCC;
 	margin: 0 0 20px 0;
 	padding: 0;
@@ -140,10 +144,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#167067', end
 }
 
 .tags {
-	img {	
+	img {
 		display: inline;
 		position: static;
-		padding-left: 2px;	
+		padding-left: 2px;
 		height: 15px;
 	}
 }
@@ -161,6 +165,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#167067', end
 }
 
 .row .col-xs-sm-6 {
+
 	&:first-child {
 		padding-right: 0;
 	}
@@ -198,6 +203,7 @@ form p {
     background-color: #2AD3B2;
     border-color: #2AD3B2;
 }
+
 /* --------------- CODE MIRROR ---------------- */
 
 .CodeMirror,
@@ -217,4 +223,3 @@ form p {
 	display: block;
 	line-height: 0;
 }
-

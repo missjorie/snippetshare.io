@@ -9,7 +9,10 @@ class SnippetsController < ApplicationController
 	    @editors = Editor.all
 	    @users = User.all
 	    @user = User.find params[:user_id]
+<<<<<<< HEAD
 
+=======
+>>>>>>> f97184f927ae6a7bd6b5065429dda90db7f576dd
 	end
 
 	def new

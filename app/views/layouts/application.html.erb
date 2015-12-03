@@ -25,19 +25,25 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+<<<<<<< HEAD
   
+=======
+      <!-- <li><a href="#">Popular</a></li> -->
+      <!-- <li><a href="#">New</a></li> -->
+
+>>>>>>> f97184f927ae6a7bd6b5065429dda90db7f576dd
       </ul>
-      <form class="navbar-form navbar-right" role="search">
+      <!-- <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search snippets..">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+      </form> -->
 
       <ul class="nav navbar-nav navbar-right">
 				<% if current_user %>
 					<li class="navbar-text"><%= image_tag("#{current_user.photo}", class: "img-rounded avatar") %></li>
-					<li><a href="#">Welcome, <%= current_user.username %></a></li>
+					<li  class="navbar-text" style="color: #999">Logged in as <%= current_user.username %></li>
 					<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions<span class="caret"></span></a>
           <ul class="dropdown-menu">
