@@ -74,7 +74,6 @@ class SnippetsController < ApplicationController
 			f.json { render json: @snippet.errors, status: :unprocessable_entity }
 		end
 	end
-
 # redirect_to user_snippets_path(@user)
 
 private
