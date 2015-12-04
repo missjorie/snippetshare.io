@@ -25,7 +25,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-<<<<<<< HEAD
     if @current_user.id != @snippet.user_id
       redirect_to root_path
     end
