@@ -3,10 +3,7 @@
 <% else %>
 	<h1>View <%= @user.username %>'s Snippets</h1>
 <% end %>
-<<<<<<< HEAD
-=======
 
->>>>>>> f97184f927ae6a7bd6b5065429dda90db7f576dd
 <% @snippets.each do |snippet| %>
 
 
@@ -24,18 +21,12 @@
 					<li><%= language.name %></li>
 				</ul>
 			</div>
-<<<<<<< HEAD
-	<div class="meta"><div class="row"><div class="col-xs-10">@<%= @user.username %></div>
-			<% if @current_user.id == @user.id %>
-				<%= button_to "X", snippet, :remote => true, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs col-xs-1 delete" %></div></div>
-			<% end %>
-=======
+
 			<div class="meta"><div class="row"><div class="col-xs-10">@<%= @user.username %></div>
 			<% if @current_user.id == @user.id %>
 				<%= button_to "X", snippet, :remote => true, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs col-xs-1 delete" %></div>
 			<% end %>
 			</div>
->>>>>>> f97184f927ae6a7bd6b5065429dda90db7f576dd
 		</div>
 	</div>
 <% end %>

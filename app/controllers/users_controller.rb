@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if @current_user.id != @snippet.user_id
+    if @current_user.id != @user.id
       redirect_to root_path
     end
   end
