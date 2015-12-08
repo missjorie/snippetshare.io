@@ -15,6 +15,7 @@
  *= require codemirror
  *= require codemirror/themes/monokai
  */
+
 @import "bootstrap-sprockets";
 @import "bootswatch/yeti/variables";
 @import "bootstrap";
@@ -22,174 +23,180 @@
 @import url(https://fonts.googleapis.com/css?family=Grand+Hotel);
 @import url(https://fonts.googleapis.com/css?family=Lato);
 @import url(https://cdn.rawgit.com/konpa/devicon/89f2f44ba07ea3fff7e561c2142813b278c2d6c6/devicon.min.css);
-
 body {
-	background-color: #fcfcfc;
+    background-color: #fcfcfc;
 }
 
-.snipper_heading, .navbar-brand {
-	display: inline-block;
-	padding: 0.2em;
-	font-family: 'Grand Hotel', sans-serif;
-	font-size: 8em;
-	font-weight: bold;
-	background: #f3c5bd;
-background: rgb(32,162,149); /* Old browsers */
-background: -moz-linear-gradient(top, rgba(32,162,149,1) 10%, rgba(29,183,158,1) 24%, rgba(29,183,158,1) 34%, rgba(34,186,158,1) 50%, rgba(38,218,182,1) 70%, rgba(25,199,185,1) 90%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, rgba(32,162,149,1) 10%,rgba(29,183,158,1) 24%,rgba(29,183,158,1) 34%,rgba(34,186,158,1) 50%,rgba(38,218,182,1) 70%,rgba(25,199,185,1) 90%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, rgba(32,162,149,1) 10%,rgba(29,183,158,1) 24%,rgba(29,183,158,1) 34%,rgba(34,186,158,1) 50%,rgba(38,218,182,1) 70%,rgba(25,199,185,1) 90%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#20a295', endColorstr='#19c7b9',GradientType=0 );
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+.snipper_heading,
+.navbar-brand {
+    display: inline-block;
+    padding: 0.2em;
+    font-family: 'Grand Hotel', sans-serif;
+    font-size: 8em;
+    font-weight: bold;
+    background: #f3c5bd;
+    background: rgb(32, 162, 149);
+    /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(32, 162, 149, 1) 10%, rgba(29, 183, 158, 1) 24%, rgba(29, 183, 158, 1) 34%, rgba(34, 186, 158, 1) 50%, rgba(38, 218, 182, 1) 70%, rgba(25, 199, 185, 1) 90%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(32, 162, 149, 1) 10%, rgba(29, 183, 158, 1) 24%, rgba(29, 183, 158, 1) 34%, rgba(34, 186, 158, 1) 50%, rgba(38, 218, 182, 1) 70%, rgba(25, 199, 185, 1) 90%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(32, 162, 149, 1) 10%, rgba(29, 183, 158, 1) 24%, rgba(29, 183, 158, 1) 34%, rgba(34, 186, 158, 1) 50%, rgba(38, 218, 182, 1) 70%, rgba(25, 199, 185, 1) 90%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#20a295', endColorstr='#19c7b9', GradientType=0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .navbar-brand {
-	font-size: 2.6em;
-	padding-top: 15px;
+    font-size: 2.6em;
+    padding-top: 15px;
 }
 
 .page-header {
-	padding:0;
-	margin:0;
-	border-bottom: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: none;
 }
 
 .page-header small {
-	font-family: 'Lato', sans-serif;
-	font-size: 2em;
-	color: #777;
-	display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-size: 2em;
+    color: #777;
+    display: inline-block;
 }
 
 .nav .glyphicon {
-	font-size: 1.6em;
-	font-weight: bold;
-	padding: 5px;
+    font-size: 1.6em;
+    font-weight: bold;
+    padding: 5px;
 }
+
 
 /* --------------- SNIPPET CARD ---------------- */
 
 .snippet-card {
-	background-color: #fff;
-	border: 1px solid #CCC;
-	margin: 0 0 20px 0;
-	padding: 0;
-	border-radius: 4px;
-	box-shadow: 0px 2px 2px #DDD;
-	overflow: hidden;
-	position:relative;
-	transition: 0.2s ease-in-out;
-		&:hover {
-		cursor: pointer;
-		transform: scale(1.05);
-	}
-	.tags {
-		font-size: 15px;
-		padding:0;
-		li {
-			display: inline-block;
-			padding: 3px 8px;
-			margin: 0;
-			background: #666;
-			color: #FFF;
-			border-radius: 2px;
-		}
-	}
-	.body {
-		padding: 10px;
-	}
-	.title {
-		font-size: 2em;
-	}
-	.description {
-		font-size: 1.3em;
-		display: block;
-		margin-bottom: 15px;
-		height: 50px;
-		overflow: hidden;
-	  	text-overflow: ellipsis;
-	}
-	.meta {
-		padding: 10px;
-		background-color: #EEE;
-	}
+    background-color: #fff;
+    border: 1px solid #CCC;
+    margin: 0 0 20px 0;
+    padding: 0;
+    border-radius: 4px;
+    box-shadow: 0px 2px 2px #DDD;
+    overflow: hidden;
+    position: relative;
+    transition: 0.2s ease-in-out;
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+    .tags {
+        font-size: 15px;
+        padding: 0;
+        li {
+            display: inline-block;
+            padding: 3px 8px;
+            margin: 0;
+            background: #666;
+            color: #FFF;
+            border-radius: 2px;
+        }
+    }
+    .body {
+        padding: 10px;
+    }
+    .title {
+        font-size: 2em;
+    }
+    .description {
+        font-size: 1.3em;
+        display: block;
+        margin-bottom: 15px;
+        height: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .meta {
+        padding: 10px;
+        background-color: #EEE;
+    }
 }
 
 .show-card {
-	border: 1px solid #CCC;
-	margin: 0 0 20px 0;
-	padding: 0;
-	border-radius: 4px;
-	box-shadow: 0px 2px 2px #DDD;
-	overflow: hidden;
-	position:relative;
-	transition: 0.2s ease-in-out;
+    border: 1px solid #CCC;
+    margin: 0 0 20px 0;
+    padding: 0;
+    border-radius: 4px;
+    box-shadow: 0px 2px 2px #DDD;
+    overflow: hidden;
+    position: relative;
+    transition: 0.2s ease-in-out;
 }
 
 .icons {
-	max-height: 3em;
-	max-width: 4em;
+    max-height: 3em;
+    max-width: 4em;
 }
 
 .icon {
-	@extend .icons;
-	position: absolute;
-	top: 10px;
-	right: 10px;
+    @extend .icons;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .tags {
-	img {	
-		display: inline;
-		position: static;
-		padding-left: 2px;	
-		height: 15px;
-	}
+    img {
+        display: inline;
+        position: static;
+        padding-left: 2px;
+        height: 15px;
+    }
 }
 
 .info {
-	border: solid 1px #ccc;
-}
-.panel {
-	margin: 0;
-	h2 {
-		line-height: 1;
-		margin: 0;
-		padding: 0;
-	}
+    border: solid 1px #ccc;
 }
 
-.row .col-xs-6 {
-	&:first-child {
-		padding-right: 0;
-	}
-	&:last-child {
-		padding-left: 0;
-	}
-	height: 100%;
+.panel {
+    margin: 0;
+    h2 {
+        line-height: 1;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.row .col-xs-sm-6 {
+    &:first-child {
+        padding-right: 0;
+    }
+    &:last-child {
+        padding-left: 0;
+    }
+    height: 100%;
 }
 
 .show {
-	height: 100%;
+    height: 100%;
 }
 
 tr td {
-	text-align: center;
-	height: 4em;
-	&:first-child {
-		width: 75%;
-	}
-	&:last-child{
-		width: 25%;
-	}
-	img {
-		width: 3em;
-		margin: auto;
-	}
+    text-align: center;
+    height: 4em;
+    &:first-child {
+        width: 75%;
+    }
+    &:last-child {
+        width: 25%;
+    }
+    img {
+        width: 3em;
+        margin: auto;
+    }
 }
 
 form p {
-	color: #999;
+    color: #999;
 }
 
 .btn-danger {
@@ -198,37 +205,38 @@ form p {
 }
 
 .center {
-	text-align: center;
+    text-align: center;
 }
 
 .login-card {
-	@extend .snippet-card;
-	h1 {
-		font-size: 10em;
-	}
-	h3 {
-		color: black;
-		text-decoration: none;
-	}
+    @extend .snippet-card;
+    h1 {
+        font-size: 10em;
+    }
+    h3 {
+        color: black;
+        text-decoration: none;
+    }
 }
+
 
 /* --------------- CODE MIRROR ---------------- */
 
 .CodeMirror,
 #codemirror {
-	border: 2px solid #DDD;
-	border-radius: 5px;
-	white-space: normal;
-	word-wrap: break-word;
-	height: auto;
+    border: 2px solid #DDD;
+    border-radius: 5px;
+    white-space: normal;
+    word-wrap: break-word;
+    height: auto;
 }
+
 
 /* --------------- ERRORS ---------------- */
 
 #error_explanation h2 {
-	font-size: 1.3em;
-	color: #FFF;
-	display: block;
-	line-height: 0;
+    font-size: 1.3em;
+    color: #FFF;
+    display: block;
+    line-height: 0;
 }
-

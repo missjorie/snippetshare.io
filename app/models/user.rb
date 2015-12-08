@@ -11,8 +11,10 @@ class User < ActiveRecord::Base
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.password = "123456789"
-      user.username = auth["info"]["name"]["avatar_url"]
+      user.username = auth["info"]["nickname"]
+      user.email = auth["info"]["email"]
     end
   end
   # has_many :favorites, dependent: :destroy
 end
+ 

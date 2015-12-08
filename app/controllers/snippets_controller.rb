@@ -9,6 +9,7 @@ class SnippetsController < ApplicationController
 	    @editors = Editor.all
 	    @users = User.all
 	    @user = User.find params[:user_id]
+
 	end
 
 	def new
@@ -73,7 +74,6 @@ class SnippetsController < ApplicationController
 			f.json { render json: @snippet.errors, status: :unprocessable_entity }
 		end
 	end
-end
 # redirect_to user_snippets_path(@user)
 
 private
@@ -90,4 +90,4 @@ private
 	def snippet_params
 		params.require(:snippet).permit(:name, :code, :description, :user_id, :language_id, :editor_id)
 	end
-
+end

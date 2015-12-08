@@ -6,7 +6,7 @@
 
 <%= form_for @snippet, url: user_snippets_path(@user), html:{class:"snippet_form", role:"form"} do |f| %>
 	<div class="form-group">
-		<%= f.label "Snippet Name" %>
+		<%= f.label :name %>
 		<p>Ex. 'if-else'</p>
 		<%= f.text_field :name, class:"form-control", autofocus: true %>
 	</div>

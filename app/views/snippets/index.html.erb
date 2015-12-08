@@ -21,6 +21,7 @@
 					<li><%= language.name %></li>
 				</ul>
 			</div>
+
 			<div class="meta"><div class="row"><div class="col-xs-10">@<%= @user.username %></div>
 			<% if @current_user && @current_user.id == @user.id %>
 				<%= button_to "X", snippet, :remote => true, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs col-xs-1 delete" %>
